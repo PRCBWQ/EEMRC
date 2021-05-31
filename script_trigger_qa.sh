@@ -22,5 +22,5 @@ python code/run_trigger_qa.py \
   --warmup_proportion 0.1 \
   --do_train \
   --do_eval \
-  --model bert-base-uncased 
+  --model ./bertmodel/bert_base_uncased #bert-base-uncased
   # To get final results on test, you need to (1) add eval_test; (2) set --model_dir to your model path for test (e.g., epoch-x-step-x)

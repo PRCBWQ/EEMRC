@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="BWQGPU">
+  <component name="PublishConfigData" autoUpload="Always" serverName="BWQGPU" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.bin">
     <serverData>
       <paths name="BWQGPU">
         <serverdata>
           <mappings>
             <mapping deploy="/home/BWQ/EEQA" local="$PROJECT_DIR$" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/bertmodel" />
+            <excludedPath path="/home/BWQ/EEQA/bertmodel" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
