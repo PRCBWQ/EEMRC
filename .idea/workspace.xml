@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a9c7d079-8de7-4154-9314-7aa227925f96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/eeqa-master.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/READ.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/pytorch_pretrained_bert/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/pytorch_pretrained_bert/file_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/pytorch_pretrained_bert/modeling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/pytorch_pretrained_bert/optimization.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/pytorch_pretrained_bert/tokenization.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/run_args_qa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/run_args_qa_thresh.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/run_args_qa_unseen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/run_trigger_qa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figs/framework.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/figs/templates.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/DATA.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/collect_ace_event.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/convert_examples.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/event-split/dev.filelist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/event-split/test.filelist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/event-split/train.filelist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/parse_ace_event.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proc/scripts/data/ace-event/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/all_args" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/arg_queries.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/description_queries.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/description_queries_new.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/scripts/analysis_arg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/scripts/analysis_arg_number.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/scripts/get_unseen_args.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/scripts/read_description_queries.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/question_templates/unseen_args" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script_args_qa.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script_args_qa_thresh.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script_args_qa_unseen.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script_trigger_qa.sh" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1t6hTW6woUDOoRnQPCfXGqUfiWO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../event_extract_master-main" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\home\RemoteProject\eeqa-master" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="eeqa-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9c7d079-8de7-4154-9314-7aa227925f96" name="Default Changelist" comment="" />
+      <created>1622095453802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622095453802</updated>
+      <workItem from="1622095458043" duration="10444000" />
+      <workItem from="1622197349150" duration="3334000" />
+      <workItem from="1622200790773" duration="927000" />
+      <workItem from="1622376506626" duration="186000" />
+      <workItem from="1622380277504" duration="1689000" />
+      <workItem from="1622450241408" duration="289000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
