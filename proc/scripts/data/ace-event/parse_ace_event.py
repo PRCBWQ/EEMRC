@@ -31,6 +31,7 @@ def in_between(ix, pair):
     assert ix != pair[0] and ix != pair[1]
     return ix > pair[0] and ix < pair[1]
 
+
 @dataclass
 class TokSpan:
     # Note that end chars are inclusive.
@@ -238,7 +239,8 @@ class Doc:
 
 def debug_if(cond):
     if cond:
-        import ipdb; ipdb.set_trace()
+        import ipdb;
+        ipdb.set_trace()
 
 
 def get_token_indices(entity, sent):
@@ -258,6 +260,7 @@ def get_token_of(doc, char):
     for tok in doc:
         if char >= tok.idx and char < tok.idx + len(tok):
             return doc[tok.i]
+    print("tok.idx:", tok.idx, "\ntoklen:",len(tok),"\nchar:",char,"\ntok:",tok,"\n")
     raise Exception('Should not get here.')
 
 
@@ -271,6 +274,7 @@ class Document:
         :param annotation_path:
         :param text_path:
         '''
+
         self._heads_only = heads_only
         self._real_entities_only = real_entities_only
         self._doc_key = doc_key
@@ -279,22 +283,33 @@ class Document:
         self._text_path = text_path
         self._text = self._load_text(text_path)
         self.doc = self._make_nlp(self._text)
+
+        # print("doc",self.doc)
+        # print("self.doc.idx",self.doc.idx)
         assert self.doc.text == self._text
-        self.entity_list, self.entity_ids = self._populate_entity_list()
-        self.entity_lookup = self._populate_entity_lookup()
-        if self._real_entities_only:
-            self._allowed_flavors = ["entity", "pronoun"] if include_pronouns else ["entity"]
-            self.entity_list = [x for x in self.entity_list if x.flavor in self._allowed_flavors]
+        # self.entity_list, self.entity_ids = self._populate_entity_list()
+        try:
+            self.entity_list, self.entity_ids = self._populate_entity_list()
+        except Exception as e:
+            print(e)
+            print(text_path)
+            print("lentext", len(self._text))
         else:
-            self._allowed_flavors = None
-        self.event_list = self._populate_event_list()
-        self.relation_list = self._populate_relation_list()
-        self._fold = fold
+            self.entity_lookup = self._populate_entity_lookup()
+            if self._real_entities_only:
+                self._allowed_flavors = ["entity", "pronoun"] if include_pronouns else ["entity"]
+                self.entity_list = [x for x in self.entity_list if x.flavor in self._allowed_flavors]
+            else:
+                self._allowed_flavors = None
+            self.event_list = self._populate_event_list()
+            self.relation_list = self._populate_relation_list()
+            self._fold = fold
 
     def _make_nlp(self, text):
         '''
         Add a few special cases to spacy tokenizer so it works with ACe mistakes.
         '''
+
         # Prevent edge case where there are sentence breaks in bad places
         def custom_seg(doc):
             for index, token in enumerate(doc):
@@ -307,9 +322,9 @@ class Document:
                 if token.text == "things" and doc[index + 1].text == "their":
                     doc[index + 1].sent_start = False
                 if (token.text == "Explosions" and
-                    token.i < len(doc) and
-                    doc[index - 1].text == "." and
-                    doc[index - 2].text == "Baghdad"):
+                        token.i < len(doc) and
+                        doc[index - 1].text == "." and
+                        doc[index - 2].text == "Baghdad"):
                     token.sent_start = True
                 # Comma followed by whitespace doesn't end a sentence.
                 if token.text == "," and doc[index + 1].is_space:
@@ -317,8 +332,9 @@ class Document:
                 # "And" only starts a sentence if preceded by period or question mark.
                 if token.text in ["and", "but"] and doc[index - 1].text not in [".", "?", "!"]:
                     doc[index].sent_start = False
-                if (not ((token.is_punct and token.text not in [",", "_", ";", "...", ":", "(", ")", '"']) or token.is_space)
-                    and index < len(doc) - 1):
+                if (not ((token.is_punct and token.text not in [",", "_", ";", "...", ":", "(", ")",
+                                                                '"']) or token.is_space)
+                        and index < len(doc) - 1):
                     doc[index + 1].sent_start = False
                 if "\n" in token.text:
                     if index + 1 < len(doc):
@@ -390,7 +406,7 @@ class Document:
         text_data = text_data.replace("arms inspectors. 300 miles west",
                                       "arms inspectors, 300 miles west")
 
-        if self._doc_key in["APW_ENG_20030327.0376", "APW_ENG_20030519.0367"]:
+        if self._doc_key in ["APW_ENG_20030327.0376", "APW_ENG_20030519.0367"]:
             text_data = text_data.replace("_", "-")
 
         return text_data
@@ -426,6 +442,7 @@ class Document:
                 mention_id = one_entity_mention.attrib['ID']
                 mention_type = one_entity.attrib['TYPE']
                 # Others have only looked at the head.
+                # print(one_entity_mention.find(field_to_find)[0].attrib)
                 tentative_start = int(one_entity_mention.find(field_to_find)[0].attrib['START'])
                 tentative_end = int(one_entity_mention.find(field_to_find)[0].attrib['END'])
 
@@ -433,7 +450,7 @@ class Document:
 
                 # Parser chokes on the space.
                 if (self._doc_key == "soc.history.war.world-war-ii_20050127.2403" and
-                    text_string.text == "lesliemills2002@netscape. net"):
+                        text_string.text == "lesliemills2002@netscape. net"):
                     continue
 
                 # Keep option to ignore pronouns.
@@ -459,7 +476,7 @@ class Document:
 
                 # Parser chokes on the space.
                 if (self._doc_key == "soc.history.war.world-war-ii_20050127.2403" and
-                    text_string.text == "lesliemills2002@netscape. net"):
+                        text_string.text == "lesliemills2002@netscape. net"):
                     continue
 
                 entry = Entity(start_char, end_char, text_string, mention_id=mention_id,
@@ -594,17 +611,17 @@ class Document:
                     elif this_argument.relation_role == "Arg-2":
                         # This is a mis-annotated relation. Ignore it.
                         if (self._doc_key == 'CNN_ENG_20030430_093016.0' and
-                            text_string.text == "the school in an\nunderprivileged rural area"):
+                                text_string.text == "the school in an\nunderprivileged rural area"):
                             include = False
                         if (self._doc_key == "CNN_ENG_20030430_093016.0" and
-                            start_char == 3091 and end_char == 3096):
+                                start_char == 3091 and end_char == 3096):
                             include = False
                         # Crosses a sentence boundary.
                         if (self._doc_key == "rec.travel.cruises_20050222.0313" and
-                            start_char == 1435 and end_char == 1442):
+                                start_char == 1435 and end_char == 1442):
                             include = False
                         if (self._doc_key == "rec.travel.cruises_20050222.0313" and
-                            start_char == 1456 and end_char == 1458):
+                                start_char == 1456 and end_char == 1458):
                             include = False
 
                         argument_dict["arg2"] = this_argument
@@ -672,7 +689,8 @@ class Document:
             if all([not entry for entry in each_one]):
                 return False
             else:
-                import ipdb; ipdb.set_trace()
+                import ipdb;
+                ipdb.set_trace()
 
         relations = []
         for relation in self.relation_list:
@@ -692,7 +710,8 @@ class Document:
             if all([not entry for entry in each_one]):
                 return False
             else:
-                import ipdb; ipdb.set_trace()
+                import ipdb;
+                ipdb.set_trace()
 
         events = []
         for event in self.event_list:
@@ -740,13 +759,18 @@ def one_fold(fold, output_dir, heads_only=True, real_entities_only=True, include
             doc_keys.append(line.strip())
 
     with open(path.join(output_dir, fold + ".json"), "w") as g:
+        exportpath =["CNN_CF_20030304.1900.04","CNN_ENG_20030616_130059.25","BACONSREBELLION_20050209.0721",
+                     "FLOPPINGACES_20041114.1240.039","BACONSREBELLION_20050226.1317","FLOPPINGACES_20050217.1237.014"]
         for doc_key in doc_keys:
+            # 跳过 CNN_CF_20030304.1900.04
+            if (doc_key in exportpath):
+                continue
             annotation_path = path.join(doc_path, doc_key + ".apf.xml")
             text_path = path.join(doc_path, doc_key + ".sgm")
             document = Document(annotation_path, text_path, doc_key, fold, heads_only,
                                 real_entities_only, include_pronouns)
             js = document.to_json()
-            g.write(json.dumps(js, default=int, indent = 4) + "\n")
+            g.write(json.dumps(js, default=int, indent=4) + "\n")
 
 
 def main():

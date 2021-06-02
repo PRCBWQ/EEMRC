@@ -2,8 +2,8 @@
 
 ace_dir=$1
 
-original_dir=$ace_dir/data/English
-
+# original_dir=$ace_dir/data/English
+original_dir=$ace_dir
 out_dir=./data/ace-event/raw-data
 
 
